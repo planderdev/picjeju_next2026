@@ -1,0 +1,280 @@
+@charset "UTF-8";
+
+/*
+  Admin UX polish layer.
+  The converted admin pages keep their original markup; this layer improves
+  interaction states, density, scroll behavior, and responsive containment.
+*/
+
+:root {
+    --admin-polish-shadow: 0 10px 28px rgba(15, 23, 42, .07);
+    --admin-polish-shadow-soft: 0 4px 14px rgba(15, 23, 42, .05);
+    --admin-row-hover: #fff8f5;
+    --admin-row-selected: #fff2eb;
+}
+
+html {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+}
+
+a,
+button,
+input,
+select,
+textarea {
+    -webkit-tap-highlight-color: transparent;
+}
+
+body.admin-next-shell {
+    background:
+        linear-gradient(180deg, #f9fafb 0, #f7f8fa 280px);
+}
+
+body.admin-next-shell .topbar {
+    border-bottom-color: rgba(215, 221, 229, .86);
+    background: rgba(255, 255, 255, .94);
+    backdrop-filter: blur(10px);
+}
+
+body.admin-next-shell .top-header {
+    gap: 12px;
+}
+
+body.admin-next-shell .top-header .h5,
+body.admin-next-shell .page-title {
+    font-size: 19px;
+    letter-spacing: 0;
+}
+
+body.admin-next-shell .layout {
+    align-items: start;
+}
+
+body.admin-next-shell .sidebar {
+    position: sticky;
+    top: 70px;
+    height: calc(100vh - 70px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(107, 118, 132, .34) transparent;
+}
+
+body.admin-next-shell .sidebar::-webkit-scrollbar {
+    width: 8px;
+}
+
+body.admin-next-shell .sidebar::-webkit-scrollbar-thumb {
+    border: 2px solid transparent;
+    border-radius: 999px;
+    background: rgba(107, 118, 132, .34);
+    background-clip: padding-box;
+}
+
+body.admin-next-shell .sidebar .brand {
+    min-height: 48px;
+}
+
+body.admin-next-shell .sidebar .menu a {
+    min-height: 38px;
+    border-radius: var(--admin-radius-md);
+    transition: background-color .16s ease, color .16s ease, transform .16s ease;
+}
+
+body.admin-next-shell .sidebar .menu a:hover,
+body.admin-next-shell .sidebar .menu a.active,
+body.admin-next-shell .sidebar .menu a.active-parent {
+    background: var(--admin-primary-soft);
+    color: var(--admin-primary-hover);
+}
+
+body.admin-next-shell .sidebar .menu a:hover {
+    transform: translateX(2px);
+}
+
+body.admin-next-shell main.container-fluid {
+    max-width: 1440px;
+}
+
+body.admin-next-shell .card,
+body.admin-next-shell .panel,
+body.admin-next-shell .admin-section-context {
+    border-color: rgba(215, 221, 229, .9);
+    box-shadow: var(--admin-polish-shadow-soft);
+}
+
+body.admin-next-shell .card:hover {
+    box-shadow: var(--admin-polish-shadow);
+}
+
+body.admin-next-shell .card-header,
+body.admin-next-shell .card-footer {
+    background: #fbfcfd;
+}
+
+body.admin-next-shell .card-header strong,
+body.admin-next-shell .card-header .fw-semibold,
+body.admin-next-shell .card-header .h6,
+body.admin-next-shell .card-header h3 {
+    letter-spacing: 0;
+}
+
+body.admin-next-shell .form-label {
+    margin-bottom: 7px;
+    color: var(--admin-text);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+body.admin-next-shell .form-control,
+body.admin-next-shell .form-select,
+body.admin-next-shell .input-group-text {
+    min-height: 42px;
+    border-color: var(--admin-border-strong);
+    background-color: #fff;
+    transition: border-color .16s ease, box-shadow .16s ease, background-color .16s ease;
+}
+
+body.admin-next-shell textarea.form-control {
+    min-height: 136px;
+}
+
+body.admin-next-shell .form-control:hover:not(:disabled):not([readonly]),
+body.admin-next-shell .form-select:hover:not(:disabled) {
+    border-color: #b9c2ce;
+}
+
+body.admin-next-shell .form-control:focus,
+body.admin-next-shell .form-select:focus,
+body.admin-next-shell .btn:focus-visible,
+body.admin-next-shell .form-check-input:focus {
+    border-color: var(--admin-primary);
+    outline: 0;
+    box-shadow: var(--admin-focus-ring);
+}
+
+body.admin-next-shell .form-control[readonly],
+body.admin-next-shell .form-control:disabled,
+body.admin-next-shell .form-select:disabled {
+    color: var(--admin-text-muted);
+    background-color: #f5f7fa;
+}
+
+body.admin-next-shell .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    min-height: 38px;
+    border-radius: var(--admin-radius-md);
+    transition: background-color .16s ease, border-color .16s ease, color .16s ease, box-shadow .16s ease, transform .16s ease;
+}
+
+body.admin-next-shell .btn:hover:not(:disabled) {
+    box-shadow: var(--admin-polish-shadow-soft);
+    transform: translateY(-1px);
+}
+
+body.admin-next-shell .btn:active:not(:disabled) {
+    box-shadow: none;
+    transform: translateY(0);
+}
+
+body.admin-next-shell .btn-icon,
+body.admin-next-shell .btn-icon-only,
+body.admin-next-shell .btn.btn-link {
+    box-shadow: none;
+}
+
+body.admin-next-shell .table {
+    vertical-align: middle;
+}
+
+body.admin-next-shell .table thead th {
+    position: sticky;
+    top: 0;
+    z-index: 3;
+    background: #fbfcfd;
+    box-shadow: 0 1px 0 rgba(215, 221, 229, .9);
+}
+
+body.admin-next-shell .table tbody tr {
+    transition: background-color .14s ease;
+}
+
+body.admin-next-shell .table tbody tr:hover {
+    background: var(--admin-row-hover);
+}
+
+body.admin-next-shell .table tbody tr.is-selected,
+body.admin-next-shell .table tbody tr:has(.row-check:checked),
+body.admin-next-shell .table tbody tr:has(.rowchk:checked) {
+    background: var(--admin-row-selected);
+}
+
+body.admin-next-shell .badge {
+    font-weight: 600;
+}
+
+body.admin-next-shell .toastui-editor-defaultUI {
+    border-color: var(--admin-border-strong);
+    border-radius: var(--admin-radius-md);
+    overflow: hidden;
+}
+
+body.admin-next-shell .toastui-editor-defaultUI:focus-within {
+    border-color: var(--admin-primary);
+    box-shadow: var(--admin-focus-ring);
+}
+
+body.admin-next-shell .notify-panel {
+    border-left: 1px solid var(--admin-border);
+}
+
+body.admin-next-shell .list-group-item {
+    transition: background-color .14s ease;
+}
+
+body.admin-next-shell .list-group-item:hover {
+    background: #fbfcfd;
+}
+
+@media (max-width: 991.98px) {
+    body.admin-next-shell .layout {
+        display: block;
+    }
+
+    body.admin-next-shell main {
+        padding: 16px;
+    }
+
+    body.admin-next-shell .top-header {
+        height: 62px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    body.admin-next-shell main {
+        padding: 12px;
+    }
+
+    body.admin-next-shell .card-body,
+    body.admin-next-shell form.card .card-body {
+        padding: 16px;
+    }
+
+    body.admin-next-shell .card-footer {
+        align-items: stretch;
+    }
+
+    body.admin-next-shell .card-footer .btn,
+    body.admin-next-shell .text-end .btn {
+        width: 100%;
+    }
+
+    body.admin-next-shell .text-end {
+        display: grid;
+        gap: 8px;
+    }
+}
